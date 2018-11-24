@@ -1,3 +1,5 @@
+TOKEN = '595069792:AAGnFK7tmzJYruORvHU00Dypu5AVMEEBz1k'
+
 CMD_START_STUDY = 'Вперед!'
 CMD_START_TEST = 'Выполнить тест'
 

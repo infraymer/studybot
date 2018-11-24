@@ -1,13 +1,10 @@
-import telegram
-from telegram import (InlineKeyboardMarkup, ReplyKeyboardRemove, ReplyKeyboardMarkup)
-from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, RegexHandler,
-                          ConversationHandler)
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, InlineQueryHandler
 import logging
-import model
-import keyboards
 
+from telegram.ext import (MessageHandler, Filters)
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+
+import keyboards
+import model
 # Enable logging
 import telega
 
@@ -15,8 +12,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-
-VIDEO, DESCRIPTION, TEST = range(3)
 
 
 def message_handler(bot, update):
@@ -179,7 +174,7 @@ def main():
         # 'username': 'PROXY_USER',
         # 'password': 'PROXY_PASS',
     }
-    updater = Updater("595069792:AAGnFK7tmzJYruORvHU00Dypu5AVMEEBz1k", request_kwargs=REQUEST_KWARGS)
+    updater = Updater(telega.TOKEN, request_kwargs=REQUEST_KWARGS)
     dp = updater.dispatcher
 
     # Handlers
