@@ -110,7 +110,7 @@ def question_handler(bot, update):
         variants_text += '{}. {}\n'.format(i + 1, answers[i])
     bot.send_message(
         chat_id=user.id,
-        text=question['text'] + '\n\n' + variants_text,
+        text=question['text'],
         reply_markup=keyboards.answer_variants(answers))
     model.User.set_state(user, model.State.ANSWER)
     # if len(task['question']) - 1 == q_index:
