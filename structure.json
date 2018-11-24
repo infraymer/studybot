@@ -1,18 +1,47 @@
-[
-  {
-    "name": "Task name",
-    "link": "http://...",
-    "questions": [
-      {
-        "description": "Desctription question",
-        "true_answer": 0,
-        "answes": [
-          "first",
-          "second",
-          "third",
-          "fours"
-        ]
+{
+  "_id": {
+    "$oid": "5bf7a9a8c3a78b3d3c0257a7"
+  },
+  "name": "Task 2",
+  "description": "Посмотрите видео про деление",
+  "link": "https://...",
+  "questions": [
+    {
+      "text": "10 / 2 = ?",
+      "true_answer": {
+        "$numberInt": "0"
+      },
+      "answers": [
+        "5",
+        "3",
+        "4"
+      ],
+      "_id": {
+        "$oid": "5bf5a6ae623e5e1650f321b7"
       }
-    ]
-  }
-]
+    },
+    {
+      "text": "2 / 1 = ?",
+      "true_answer": {
+        "$numberInt": "0"
+      },
+      "answers": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ]
+    },
+    {
+      "text": "7 / 0 = ?",
+      "true_answer": {
+        "$numberInt": "2"
+      },
+      "answers": [
+        "7",
+        "0",
+        "Делить на ноль нельзя"
+      ]
+    }
+  ]
+}
