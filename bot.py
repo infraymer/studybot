@@ -187,6 +187,7 @@ def main():
 
     # Start the Bot
     updater.start_polling()
+    logger.info('Bot RUNNING')
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
