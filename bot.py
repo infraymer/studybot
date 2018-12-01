@@ -169,12 +169,12 @@ def error(bot, update, error):
 def main():
     # Create the EventHandler and pass it your bot's token.
     REQUEST_KWARGS = {
-        'proxy_url': 'socks5://13.81.171.24:1080',
+        'proxy_url': telega.PROXY_URL,
         # Optional, if you need authentication:
         # 'username': 'PROXY_USER',
         # 'password': 'PROXY_PASS',
     }
-    updater = Updater(telega.TOKEN, request_kwargs=REQUEST_KWARGS)
+    updater = Updater(telega.TOKEN)
     dp = updater.dispatcher
 
     # Handlers
