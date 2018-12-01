@@ -1,5 +1,5 @@
 TOKEN = '786225250:AAHpbGMNPSo-e1FCaJIyjUpA2KMeq7hSuaY'
-PROXY_URL = 'socks5://208.97.31.13:1080'
+PROXY_URL = 'socks5://162.144.209.26:14352'
 
 CMD_START_STUDY = 'Вперед!'
 CMD_START_TEST = 'Выполнить тест'

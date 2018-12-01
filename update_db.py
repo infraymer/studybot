@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request, flash, redirect
+from flask import Flask, request
 from pymongo import MongoClient
 
 client = MongoClient()
@@ -18,20 +18,23 @@ def hello():
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-
-        with open('data.json', encoding='utf-8') as f:
-            data = json.load(f)
-            db.tasks.remove({})
-            db.tasks.insert(data)
+        # if 'file' not in request.files:
+        #     flash('No file part')
+        #     return redirect(request.url)
+        # file = request.files['file']
+        # # if user does not select file, browser also
+        # # submit an empty part without filename
+        # if file.filename == '':
+        #     flash('No selected file')
+        #     return redirect(request.url)
+        #
+        # with open('data.json', encoding='utf-8') as f:
+        #     data = json.load(f)
+        #     db.tasks.remove({})
+        #     db.tasks.insert(data)
+        data = json.load(request.data)
+        db.tasks.remove({})
+        db.tasks.insert(data)
 
     return '''
     <!doctype html>
