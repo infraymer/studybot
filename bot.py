@@ -1,3 +1,4 @@
+import json
 import logging
 
 from telegram.ext import (MessageHandler, Filters)
@@ -151,6 +152,23 @@ def button(bot, update):
             chat_id=user.id)
 
 
+def file_handler(bot, update):
+    file = bot.getFile(update.message.document.file_id)
+    logger.info("file_id: " + str(update.message.document.file_id))
+    if update.message.document.file_name == 'data.json':
+        file.download('data.json')
+        logger.info('File downloaded')
+        with open('data.json', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+                model.reset_data(data)
+                update.message.reply_text('Данные успешно обновлены!')
+                logger.info('Tasks success updated')
+            except:
+                update.message.reply_text('Произошла ошибка при обновлении данных')
+                logger.info('Error update tasks')
+
+
 def start(bot, update):
     user = update.message.from_user
     model.add_user(user)
@@ -181,6 +199,7 @@ def main():
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(MessageHandler(Filters.text, message_handler))
     dp.add_handler(CallbackQueryHandler(button))
+    dp.add_handler(MessageHandler(Filters.document, file_handler))
 
     # log all errors
     dp.add_error_handler(error)

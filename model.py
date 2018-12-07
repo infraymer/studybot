@@ -82,6 +82,11 @@ def user_state(update):
     return db.users.find_one({'chat_id': user.id})['state']
 
 
+def reset_data(data):
+    db.tasks.delete_many({})
+    db.tasks.insert_many(data)
+
+
 def add_user(user):
     try:
         post = {
